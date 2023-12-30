@@ -4,6 +4,7 @@ import logo from "../images/logo.jpg";
 import userIcon from "../images/userIcon.jpg";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Head = () => {
           src={hamburger}
           onClick={toggleMenuHandler}
         />
+
         <img className="h-8 mx-2" alt="logo" src={logo} />
       </div>
       <div className="flex col-span-10 px-20">

@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { toggleMenu } from "../utils/appSlice";
+import { closeMenu } from "../utils/appSlice";
+import { useSearchParams } from "react-router-dom";
 
 const WatchPage = () => {
-  //   const dispatch = useDispatch();
-  //   dispatch(toggleMenu());
-  return <div>hi</div>;
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("v");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(closeMenu());
+  }, []);
+  return (
+    <div>
+      <iframe
+        width="1200"
+        height="600"
+        src={`https://www.youtube.com/embed/${id}`}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
 };
 
 export default WatchPage;
