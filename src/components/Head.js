@@ -2,17 +2,25 @@ import React, { useEffect, useState } from "react";
 import hamburger from "../images/hamburger-menu.svg";
 import logo from "../images/logo.jpg";
 import userIcon from "../images/userIcon.jpg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constant";
+import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-
+  const cache = useSelector((store) => store.search);
+  const dispatch = useDispatch();
   useEffect(() => {
-    const timer = setTimeout(() => getSerchSugestions(), 200);
+    const timer = setTimeout(() => {
+      if (cache[searchQuery]) {
+        setShowSuggestions(cache[searchQuery]);
+      } else {
+        getSerchSugestions();
+      }
+    }, 200);
 
     return () => {
       clearTimeout(timer);
@@ -22,10 +30,10 @@ const Head = () => {
   const getSerchSugestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
+    dispatch(cacheResults({ [searchQuery]: json[1] }));
     setSuggestions(json[1]);
   };
 
-  const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
