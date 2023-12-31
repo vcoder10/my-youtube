@@ -13,7 +13,7 @@ const ButtonLists = () => {
     "Gaming",
   ];
   return (
-    <div className="flex">
+    <div className="flex fixed mt-0 pt-0 bg-pink-50 w-full z-10 ">
       {list.map((name, index) => (
         <Button key={index} name={name} />
       ))}
