@@ -46,8 +46,9 @@ const Head = () => {
           src={hamburger}
           onClick={toggleMenuHandler}
         />
-
-        <img className="h-8 mx-2" alt="logo" src={logo} />
+        <a href="/">
+          <img className="h-8 mx-2" alt="logo" src={logo} />
+        </a>
       </div>
       <div className="flex flex-col col-span-10 px-20 ">
         <div>
