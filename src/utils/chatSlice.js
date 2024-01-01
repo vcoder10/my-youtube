@@ -8,8 +8,13 @@ const chatSlice = createSlice({
   },
   reducers: {
     addMessage: (state, action) => {
-      state.messages.splice(LIVE_CHAT_COUNT, 1);
-      state.messages.unshift(action.payload);
+      if (state.messages.length === LIVE_CHAT_COUNT)
+        state.messages.splice(0, 1);
+      state.messages.push(action.payload);
+
+      // ye method kerna hai to ui me reverse se map kerna hoga
+      // state.messages.splice(LIVE_CHAT_COUNT, 1);
+      // state.messages.unshift(action.payload);
     },
   },
 });
