@@ -3,7 +3,6 @@ import VideoCard, { AdVideoCard } from "./VideoCard";
 import useGetVideo from "../hooks/useGetVideo";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import RecomendedVideoCard from "./RecomendedVideoCard";
 
 const VideoContainer = () => {
   useGetVideo();
@@ -14,7 +13,7 @@ const VideoContainer = () => {
       <AdVideoCard video={videos[0]} />
       {videos.map((video) => (
         <Link to={"/watch?v=" + video.id} key={video.id}>
-          <RecomendedVideoCard video={video} />
+          <VideoCard video={video} ad={false} />
         </Link>
       ))}
     </div>

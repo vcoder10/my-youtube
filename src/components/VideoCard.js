@@ -1,6 +1,6 @@
 import React from "react";
 
-const VideoCard = ({ video, ad, flex }) => {
+const VideoCard = ({ video, ad }) => {
   // destruction video details
   const { title, description, thumbnails, channelTitle } = video.snippet;
   const { viewCount, likeCount } = video.statistics;

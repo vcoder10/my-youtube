@@ -17,8 +17,8 @@ const WatchPage = () => {
     dispatch(closeMenu());
   }, []);
   return (
-    <div className="flex flex-col mx-20">
-      <div className=" flex">
+    <div className="flex  mx-20">
+      <div className=" flex flex-col">
         <div className="mt-24 rounded-xl">
           <iframe
             className="rounded-lg"
@@ -30,12 +30,11 @@ const WatchPage = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="w-full">
-          {live ? <LiveChat /> : <RecomendedVideo />}
-        </div>
+        <CommentsContainer />
       </div>
-
-      <CommentsContainer />
+      <div className="w-full">
+        {live ? <LiveChat /> : <RecomendedVideo vieoId={id} />}
+      </div>
     </div>
   );
 };

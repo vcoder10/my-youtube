@@ -15,16 +15,13 @@ const SearchCard = ({ result }) => {
   const { medium } = result.snippet.thumbnails;
   if (!result) return null;
   return (
-    <div className="flex mb-3 text-black">
+    <div className="flex mb-3 text-black pl-2 pt-2">
       <div className="relative  rounded-xl bg-slate-800 overflow-hidden">
         <img
           className="h-full w-full object-cover"
           alt="search"
           src={medium.url}
         />
-        {/* {result?.lengthSeconds && (
-                        <resultLength time={result?.lengthSeconds} />
-                    )} */}
       </div>
       <div className="flex flex-col ml-3 overflow-hidden">
         <span className="text-sm lg:text-xs xl:text-sm font-bold line-clamp-2 text-black">
@@ -33,9 +30,7 @@ const SearchCard = ({ result }) => {
 
         <div className="flex text-[12px] pt-2 font-bold text-black truncate overflow-hidden">
           <span>{`1000 views`}</span>
-          <span className="flex text-[24px] le font-bold text-black relative top-[-10px] mx-1">
-            .
-          </span>
+
           <TimeAgo publishTime={publishTime} />
         </div>
         <div>
