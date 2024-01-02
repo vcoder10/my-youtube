@@ -6,7 +6,7 @@ import RecomendedVideoCard from "./RecomendedVideoCard";
 function RecomendedVideo({ videoId }) {
   const videos = useSelector((store) => store.video.popularVideo);
   return (
-    <div className="mt-24 w-full  overflow-y-auto ">
+    <div className=" w-full  overflow-y-auto ">
       {videos &&
         videos.map((video) => (
           <RecomendedVideoCard video={video} key={video.id} />

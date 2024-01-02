@@ -24,9 +24,7 @@ const SearchCard = ({ result }) => {
         />
       </div>
       <div className="flex flex-col ml-3 overflow-hidden">
-        <span className="text-sm lg:text-xs xl:text-sm font-bold line-clamp-2 text-black">
-          {title}
-        </span>
+        <h1 className="text-lg font-bold line-clamp-2 text-black">{title}</h1>
 
         <div className="flex text-[12px] pt-2 font-bold text-black truncate overflow-hidden">
           <span>{`1000 views`}</span>

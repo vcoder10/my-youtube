@@ -13,6 +13,7 @@ import {
 import WatchPage from "./components/WatchPage";
 import MainContainer from "./components/MainContainer";
 import SearchResult from "./components/SearchResult";
+import ChannelDetail from "./components/ChannelDetail";
 
 const appRouter = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const appRouter = createBrowserRouter([
         path: "/searchResult",
         element: <SearchResult />,
       },
+      {
+        path: "/channel",
+        element: <ChannelDetail />,
+      },
     ],
   },
 ]);
@@ -44,6 +49,7 @@ function App() {
             <Route path="/" element={<Body />}>
               <Route path="/" element={<MainContainer />} />
               <Route path="/watch" element={<WatchPage />} />
+              <Route path="/channel/:channelId" element={<ChannelDetail />} />
               <Route
                 path="/searchResult/:searchQuery"
                 element={<SearchResult />}

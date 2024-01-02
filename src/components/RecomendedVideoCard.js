@@ -3,14 +3,7 @@ import React from "react";
 import channlerLogo from "../images/chatIcon.png";
 import TimeAgo from "./TimeAgo";
 const RecomendedVideoCard = ({ video }) => {
-  const {
-    //publishedAt,
-    //channelId,
-    title,
-
-    channelTitle,
-    publishTime,
-  } = video.snippet;
+  const { title, channelTitle, publishTime } = video.snippet;
   const { medium } = video.snippet.thumbnails;
 
   if (!video) return null;
@@ -25,9 +18,9 @@ const RecomendedVideoCard = ({ video }) => {
         />
       </div>
       <div className="flex flex-col ml-3 overflow-hidden">
-        <span className="text-sm lg:text-xs xl:text-sm font-bold line-clamp-2 text-black overflow-hidden">
+        <h1 className=" font-bold line-clamp-2 text-black overflow-hidden">
           {title}
-        </span>
+        </h1>
 
         <div className="flex pt-4">
           <img
