@@ -10,7 +10,11 @@ const Body = () => {
   return (
     <div className="flex">
       {isMenuOpen && <Sidebar />}
-      <div className={`main-container ${isMenuOpen ? "ml-[230px]" : "w-full"}`}>
+      <div
+        className={`main-container ${
+          isMenuOpen ? "ml-[230px] w-full" : "w-full"
+        }`}
+      >
         <Outlet />
       </div>
     </div>

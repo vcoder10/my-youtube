@@ -2,18 +2,24 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const searchSlice = createSlice({
   name: "search",
-  initialState: {},
+  initialState: {
+    searchedResults: null,
+    searchCache: {},
+  },
   reducers: {
     cacheResults: (state, action) => {
       //state = { ...action.payload, ...state };
       const key = Object.keys(action.payload)[0]; // Get the single key
       const valueArray = action.payload[key]; // Get the array value
 
-      state[key] = valueArray;
+      state.searchCache[key] = valueArray;
+    },
+    addSearchedMovie: (state, action) => {
+      state.searchedResults = action.payload;
     },
   },
 });
 
-export const { cacheResults } = searchSlice.actions;
+export const { cacheResults, addSearchedMovie } = searchSlice.actions;
 
 export default searchSlice.reducer;

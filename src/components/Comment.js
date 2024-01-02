@@ -2,7 +2,7 @@ import React from "react";
 import userImg from "../images/userIcon.jpg";
 const Comment = ({ data }) => {
   const { name, text, replies } = data;
-  console.log(replies);
+
   return (
     <div className="flex  bg-gray-50 p-2 rounded-lg my-2">
       <img className="w-12 h-12" alt="user" src={userImg} />

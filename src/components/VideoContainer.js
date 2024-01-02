@@ -3,6 +3,7 @@ import VideoCard, { AdVideoCard } from "./VideoCard";
 import useGetVideo from "../hooks/useGetVideo";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import RecomendedVideoCard from "./RecomendedVideoCard";
 
 const VideoContainer = () => {
   useGetVideo();
@@ -13,7 +14,7 @@ const VideoContainer = () => {
       <AdVideoCard video={videos[0]} />
       {videos.map((video) => (
         <Link to={"/watch?v=" + video.id} key={video.id}>
-          <VideoCard video={video} ad={false} />
+          <RecomendedVideoCard video={video} />
         </Link>
       ))}
     </div>
@@ -43,7 +44,7 @@ export default VideoContainer;
 //     ) {
 //       // User has scrolled to the bottom, fetch more videos
 //       //dispatch(fetchMoreVideos()); // Make sure you have this action in your videoSlice
-//       console.log("mal do");
+//
 //     }
 //   }, []);
 

@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
+import RecomendedVideo from "./RecomendedVideo";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("v");
+  console.log(id);
   const dispatch = useDispatch();
+  const live = useSelector((store) => store.app.live);
 
   useEffect(() => {
     dispatch(closeMenu());
@@ -28,7 +31,7 @@ const WatchPage = () => {
           ></iframe>
         </div>
         <div className="w-full">
-          <LiveChat />
+          {live ? <LiveChat /> : <RecomendedVideo />}
         </div>
       </div>
 

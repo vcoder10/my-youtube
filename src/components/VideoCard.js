@@ -1,13 +1,13 @@
 import React from "react";
 
-const VideoCard = ({ video, ad }) => {
+const VideoCard = ({ video, ad, flex }) => {
   // destruction video details
   const { title, description, thumbnails, channelTitle } = video.snippet;
   const { viewCount, likeCount } = video.statistics;
   const { duration } = video.contentDetails;
 
   return (
-    <div className="p-2 m-2 w-72 shadow-lg">
+    <div className={`p-2 m-2 w-72 shadow-lg`}>
       <img className="rounded-lg" alt="thumbnail" src={thumbnails.medium.url} />
       <ul>
         <li className="font-bold py-2">{title}</li>
