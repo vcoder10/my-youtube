@@ -2,10 +2,13 @@ import React from "react";
 //import "./style.css";
 import Sidebar from "./Sidebar";
 import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 
 const Body = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const { q } = useParams();
+  console.log("from vody");
+  console.log(q);
 
   return (
     <div className="flex">

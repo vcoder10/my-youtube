@@ -1,10 +1,11 @@
 import React from "react";
 
-const VideoCard = ({ video, ad }) => {
+const VideoCard = ({ video, ad, channel }) => {
   // destruction video details
   const { title, description, thumbnails, channelTitle } = video.snippet;
-  const { viewCount, likeCount } = video.statistics;
-  const { duration } = video.contentDetails;
+  const viewCount = 100000000;
+  //const { viewCount, likeCount } = video.statistics;
+  //const { duration } = video.contentDetails; implement kerna hai
 
   return (
     <div className={`p-2 m-2 w-72 shadow-lg`}>

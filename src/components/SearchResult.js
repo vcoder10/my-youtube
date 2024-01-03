@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const SearchResult = () => {
   const searchedVideos = useSelector((store) => store.search.searchedResults);
-  console.log(searchedVideos);
 
   return (
     <div className="grow w-full h-full overflow-y-auto mt-24 ml-24">

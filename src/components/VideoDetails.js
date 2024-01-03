@@ -13,8 +13,6 @@ const VideoDetails = ({ movieId }) => {
   const { likeCount, viewCount } = details?.statistics;
   const { channelId, title, description, channelTitle } = details?.snippet;
 
-  console.log(viewCount);
-
   return (
     <div className="flex flex-col p-2 m-2 ">
       <h1 className="text-2xl my-1 font-bold line-clamp-2 text-black">
