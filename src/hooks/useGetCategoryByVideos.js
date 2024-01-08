@@ -11,11 +11,10 @@ const useGetCategoryByVideos = (category) => {
     );
     const json = await data.json();
     dispatch(addCategoryByVideos(json.items));
-    console.log(json);
   };
   useEffect(() => {
     getCategoryByVideos();
-  }, []);
+  }, [category]);
 };
 
 export default useGetCategoryByVideos;

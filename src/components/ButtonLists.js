@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ButtonLists = () => {
   const list = [
     "All",
-    "Live",
+    "Motivation",
     "ReactJs",
     "Music",
     "Bhajan",
@@ -20,7 +20,7 @@ const ButtonLists = () => {
     "Anime",
   ];
   return (
-    <div className="flex fixed mt-0 pt-0 bg-pink-50 w-full z-10 overflow-x-scroll ">
+    <div className="flex fixed mt-0 pt-0 bg-pink-50 w-full z-10  ">
       {list.map((name, index) => (
         <Link to={"/category/" + name} key={index}>
           <Button name={name} />

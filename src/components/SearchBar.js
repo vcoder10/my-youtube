@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API } from "../utils/constant";
 import { addSearchedMovie, cacheResults } from "../utils/searchSlice";
 import { useNavigate } from "react-router-dom";
+import useGetPopularVideo from "../hooks/useGetPopularVideo";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");

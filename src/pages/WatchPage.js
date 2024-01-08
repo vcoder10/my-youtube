@@ -2,26 +2,26 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
-import CommentsContainer from "./CommentsContainer";
-import LiveChat from "./LiveChat";
+import CommentsContainer from "../components/CommentsContainer";
+import LiveChat from "../components/LiveChat";
 
-import VideoDetails from "./VideoDetails";
-import RelatedVideo from "./RelatedVideo";
+import VideoDetails from "../components/VideoDetails";
+import RelatedVideo from "../components/RelatedVideo";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("v");
 
   const dispatch = useDispatch();
+  // dispatch(clearVideoDetails());
   const live = useSelector((store) => store.app.live);
-  console.log("from watch");
-  console.log(id);
+
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
   return (
-    <div className="flex  ml-20 mt-24">
-      <div className=" flex flex-col">
+    <div className="flex  ml-20 ">
+      <div className=" flex flex-col w-[900px] mt-24">
         <div className=" ">
           <iframe
             className="rounded-xl"

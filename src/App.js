@@ -7,39 +7,39 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  createBrowserRouter,
-  RouterProvider,
+  // createBrowserRouter,
+  // RouterProvider,
 } from "react-router-dom";
-import WatchPage from "./components/WatchPage";
-import MainContainer from "./components/MainContainer";
-import SearchResult from "./components/SearchResult";
-import ChannelDetail from "./components/ChannelDetail";
-import CategoryVideos from "./components/CategoryVideos";
+import WatchPage from "./pages/WatchPage";
+import MainContainer from "./pages/MainContainer";
+import SearchResult from "./pages/SearchResult";
+import ChannelDetail from "./pages/ChannelDetail";
+import CategoryVideos from "./pages/CategoryVideos";
 
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Body />,
-    children: [
-      {
-        path: "/",
-        element: <MainContainer />,
-      },
-      {
-        path: "/watch",
-        element: <WatchPage />,
-      },
-      {
-        path: "/searchResult",
-        element: <SearchResult />,
-      },
-      {
-        path: "/channel",
-        element: <ChannelDetail />,
-      },
-    ],
-  },
-]);
+// const appRouter = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <Body />,
+//     children: [
+//       {
+//         path: "/",
+//         element: <MainContainer />,
+//       },
+//       {
+//         path: "/watch",
+//         element: <WatchPage />,
+//       },
+//       {
+//         path: "/searchResult",
+//         element: <SearchResult />,
+//       },
+//       {
+//         path: "/channel",
+//         element: <ChannelDetail />,
+//       },
+//     ],
+//   },
+// ]);
 function App() {
   return (
     <Provider store={store}>

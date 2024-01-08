@@ -1,28 +1,48 @@
 import React from "react";
-
-const VideoCard = ({ video, ad, channel }) => {
+import channelLogo from "../images/chatIcon.png";
+const VideoCard = ({ video, ad, type }) => {
   // destruction video details
-  const { title, description, thumbnails, channelTitle } = video.snippet;
-  const viewCount = 100000000;
-  //const { viewCount, likeCount } = video.statistics;
-  //const { duration } = video.contentDetails; implement kerna hai
+  const { title, channelTitle, description } = video.snippet;
+  const { medium } = video.snippet.thumbnails;
 
   return (
-    <div className={`p-2 m-2 w-72 shadow-lg`}>
-      <img className="rounded-lg" alt="thumbnail" src={thumbnails.medium.url} />
-      <ul>
-        <li className="font-bold py-2">{title}</li>
-        {!ad && <li>{channelTitle}</li>}
-        {!ad && <li>{Math.floor(viewCount / 1000)}K views</li>}
-        {ad && (
-          <div className="flex justify-between mx-2">
-            <li className="font-bold">Sponsored</li>
-            <button className="text-blue-900 cursor-pointer text-lg bg-blue-200 px-4 py-1 rounded-full">
-              Learn More
-            </button>
-          </div>
-        )}
-      </ul>
+    <div
+      className={`text-black p-2 ${
+        type === "popular" || type === "category"
+          ? "w-96 flex flex-col"
+          : type === "search"
+          ? " flex h-52"
+          : "flex w-[500px] h-32"
+      }`}
+    >
+      <div className={type === "related" ? "w-50" : " w-[350px] h-full"}>
+        <img
+          className=" w-full h-full rounded-lg"
+          alt="search"
+          src={medium.url}
+        />
+      </div>
+      <div
+        className={` ${
+          type === "related" ? "w-[300px]" : ""
+        } flex flex-col overflow-hidden ml-3`}
+      >
+        <h1 className=" font-bold line-clamp-2 text-black overflow-hidden">
+          {title}
+        </h1>
+
+        <div className="flex pt-2">
+          <img
+            className="w-8 h-8 rounded-full"
+            alt="channel log"
+            src={channelLogo}
+          />
+          <span className="py-1 px-4 font-bold text-gray-600">
+            {channelTitle}
+          </span>
+        </div>
+        <div className="pt-4">{type === "search" && <p>{description}</p>}</div>
+      </div>
     </div>
   );
 };

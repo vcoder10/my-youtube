@@ -1,12 +1,13 @@
 import React from "react";
-import ButtonLists from "./ButtonLists";
-import VideoContainer from "./VideoContainer";
+import ButtonLists from "../components/ButtonLists";
+
+import PopularVideo from "../components/PopularVideo";
 
 const MainContainer = () => {
   return (
     <div className="mt-[5rem]">
       <ButtonLists />
-      <VideoContainer />
+      <PopularVideo />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Head = () => {
   };
 
   return (
-    <div className="fixed w-full bg-orange-100 grid grid-flow-col p-5 mt-0 z-20">
+    <div className="fixed w-full bg-blue-100 grid grid-flow-col p-5 mt-0 z-30">
       <div className="flex col-span-1">
         <img
           className="h-8 cursor-pointer"

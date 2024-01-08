@@ -4,7 +4,6 @@ const searchSlice = createSlice({
   name: "search",
   initialState: {
     searchedResults: null,
-
     categoryByVideos: null,
     searchCache: {},
   },
