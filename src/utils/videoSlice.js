@@ -15,14 +15,16 @@ const videoSlice = createSlice({
     addVideoDetails: (state, action) => {
       state.videoDetails = action.payload;
     },
-    addChannelAllVideo: (state, action) => {
-      state.channelAllVideo = action.payload;
-    },
+
     clearVideoDetails: (state) => {
       state.videoDetails = null;
     },
     addChannelDetails: (state, action) => {
       state.channelDetails = action.payload;
+    },
+
+    addChannelAllVideo: (state, action) => {
+      state.channelAllVideo = action.payload;
     },
   },
 });
@@ -30,9 +32,11 @@ const videoSlice = createSlice({
 export const {
   addPopularVideo,
   addVideoDetails,
-  addChannelAllVideo,
+
   clearVideoDetails,
   addChannelDetails,
+
+  addChannelAllVideo,
 } = videoSlice.actions;
 
 export default videoSlice.reducer;

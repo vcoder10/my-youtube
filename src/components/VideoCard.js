@@ -8,7 +8,7 @@ const VideoCard = ({ video, ad, type }) => {
   return (
     <div
       className={`text-black p-2 ${
-        type === "popular" || type === "category"
+        type === "popular" || type === "category" || type === "playlists"
           ? "w-96 flex flex-col"
           : type === "search"
           ? " flex h-52"
@@ -27,9 +27,15 @@ const VideoCard = ({ video, ad, type }) => {
           type === "related" ? "w-[300px]" : ""
         } flex flex-col overflow-hidden ml-3`}
       >
-        <h1 className=" font-bold line-clamp-2 text-black overflow-hidden">
+        <h1
+          className={`font-bold ${
+            type === "related" ? "line-clamp-1" : "line-clamp-2"
+          } text-black overflow-hidden`}
+        >
           {title}
         </h1>
+
+        <h3 className="text-gray-600">View Playlists</h3>
 
         <div className="flex pt-2">
           <img
@@ -37,10 +43,16 @@ const VideoCard = ({ video, ad, type }) => {
             alt="channel log"
             src={channelLogo}
           />
-          <span className="py-1 px-4 font-bold text-gray-600">
-            {channelTitle}
-          </span>
+          <div className={`type==='related'? "flex flex-col" : "flex"`}>
+            <span className="py-1 px-3 font-bold text-gray-600">
+              {channelTitle}
+            </span>
+            <p className="text-gray-600 font-bold text-sm mt-1 pl-3">
+              1 hour ago
+            </p>
+          </div>
         </div>
+
         <div className="pt-4">{type === "search" && <p>{description}</p>}</div>
       </div>
     </div>

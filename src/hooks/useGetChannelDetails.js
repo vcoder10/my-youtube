@@ -10,7 +10,7 @@ const useGetChannelDetails = (channelId) => {
       `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${channelId}&key=${GOOGLE_API_KEY}`
     );
     const json = await data.json();
-    dispatch(addChannelDetails(json.items));
+    dispatch(addChannelDetails(json.items[0]));
   };
 
   useEffect(() => {

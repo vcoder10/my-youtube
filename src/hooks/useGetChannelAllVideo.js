@@ -5,26 +5,17 @@ import { addChannelAllVideo } from "../utils/videoSlice";
 
 const useGetChannelAllVideo = (channelId) => {
   const dispatch = useDispatch();
+  const getChannelAllVideo = async () => {
+    const data = await fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=${MAX_VIDEO_COUNT}&type=video&key=${GOOGLE_API_KEY}`
+    );
+    const json = await data.json();
+    dispatch(addChannelAllVideo(json.items));
+  };
 
   useEffect(() => {
-    const getChannelAllVideo = async () => {
-      try {
-        const data = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&channelId=${channelId}&maxResults=${MAX_VIDEO_COUNT}&key=${GOOGLE_API_KEY}`
-        );
-
-        const json = await data.json();
-
-        dispatch(addChannelAllVideo(json.items));
-      } catch (error) {
-        console.error("Error fetching video details:", error);
-      }
-    };
-
-    // Only fetch details if movieId is provided
-
     getChannelAllVideo();
-  }, []);
+  }, [channelId]);
 };
 
 export default useGetChannelAllVideo;

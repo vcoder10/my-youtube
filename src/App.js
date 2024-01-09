@@ -51,6 +51,7 @@ function App() {
               <Route path="/" element={<MainContainer />} />
               <Route path="/watch" element={<WatchPage />} />
               <Route path="/channel/:channelId" element={<ChannelDetail />} />
+
               <Route path="/category/:q" element={<CategoryVideos />} />
               <Route
                 path="/searchResult/:searchQuery"
