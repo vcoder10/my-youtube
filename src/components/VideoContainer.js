@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const VideoContainer = ({ videos, type }) => {
   if (!videos) return null;
-
   return (
     <div
       className={

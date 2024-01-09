@@ -35,8 +35,6 @@ const VideoCard = ({ video, ad, type }) => {
           {title}
         </h1>
 
-        <h3 className="text-gray-600">View Playlists</h3>
-
         <div className="flex pt-2">
           <img
             className="w-8 h-8 rounded-full"
@@ -47,9 +45,7 @@ const VideoCard = ({ video, ad, type }) => {
             <span className="py-1 px-3 font-bold text-gray-600">
               {channelTitle}
             </span>
-            <p className="text-gray-600 font-bold text-sm mt-1 pl-3">
-              1 hour ago
-            </p>
+            <p className="text-gray-600 font-bold text-sm pl-3">1 hour ago</p>
           </div>
         </div>
 

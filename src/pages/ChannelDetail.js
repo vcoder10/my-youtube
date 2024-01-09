@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import VideoContainer from "../components/VideoContainer";
 import useGetChannelDetails from "../hooks/useGetChannelDetails";
 import useGetChannelAllVideo from "../hooks/useGetChannelAllVideo";
+import ShimmerVideoContainer from "../components/ShimmerVideoContainer";
+import userIcon from "../images/userIcon.jpg";
 
 const ChannelDetail = () => {
   const { channelId } = useParams();
@@ -15,7 +17,8 @@ const ChannelDetail = () => {
   const videos = useSelector((store) => store.video.channelAllVideo);
   const channelDetails = useSelector((store) => store.video.channelDetails);
 
-  if (!videos && !channelDetails) return null;
+  if (!videos && !channelDetails)
+    return <ShimmerVideoContainer type={"popular"} />;
   const { title, description, thumbnails, customUrl } = channelDetails.snippet;
   const { videoCount, subscriberCount } = channelDetails.statistics;
 
@@ -26,7 +29,7 @@ const ChannelDetail = () => {
           <img
             className="rounded-full w-full"
             alt="channel logo"
-            src={thumbnails.medium.url}
+            src={thumbnails.medium.url ? thumbnails.medium.url : userIcon}
           />
         </div>
         <div className="pl-10">
