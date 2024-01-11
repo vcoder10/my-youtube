@@ -1,16 +1,20 @@
 import React from "react";
 import VideoCard, { AdVideoCard } from "./VideoCard";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const VideoContainer = ({ videos, type }) => {
+  const theme = useSelector((store) => store.app.theme);
   if (!videos) return null;
+
   return (
     <div
       className={
-        "  absolute mt-[5rem] justify-center " +
+        "  absolute mt-24 justify-center " +
         (type === "popular" || type === "category"
-          ? "flex flex-wrap"
-          : "flex flex-col")
+          ? "flex flex-wrap "
+          : "flex flex-col ") +
+        (!theme ? "bg-black" : "bg-white")
       }
     >
       {/* {type === "popular" && <AdVideoCard video={videos[0]} />} */}

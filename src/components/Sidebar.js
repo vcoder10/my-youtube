@@ -19,66 +19,123 @@ import PodcastsIcon from "@mui/icons-material/Podcasts";
 import FlagIcon from "@mui/icons-material/Flag";
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const theme = useSelector((store) => store.app.theme);
+
   return (
-    <div className="fixed mt-[5rem] px-2 pt-4  flex flex-col h-full w-[230px] top-0 left-0 text-black overflow-y-scroll ">
+    <div
+      className={
+        "fixed mt-[5rem] px-2 pt-4 flex flex-col h-full w-[230px] top-0 left-0 overflow-y-scroll " +
+        (!theme ? "bg-black" : "bg-white")
+      }
+    >
       <ul>
-        <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           {" "}
           <Link to={"/"}>
             <Button
               variant="text"
               startIcon={<HomeIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Home
             </Button>
           </Link>
         </li>
-        <li className="cursor-pointer px-4 py-1  hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           <Button
             variant="text"
             startIcon={<WhatshotIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Shorts
           </Button>
         </li>
         <Link to={"/live"}>
-          <li className="cursor-pointer px-4 py-1  hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<StreamIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Live
             </Button>
           </li>
         </Link>
-        <li className="cursor-pointer px-4 py-1  hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           <Button
             variant="text"
             startIcon={<SubscriptionsIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Subscription
           </Button>
         </li>
       </ul>
-      <h1 className="pt-5 font-bold ">Explore</h1>
+      <div className="border border-white mt-2 mx-2"></div>
+      <h1
+        className={
+          "pt-2 text-xl mx-10 font-bold " +
+          (!theme ? "text-white" : "text-black")
+        }
+      >
+        Explore
+      </h1>
+
       <ul>
         <Link to={"/category/trending"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<ExploreIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Trending
             </Button>
@@ -86,97 +143,161 @@ const Sidebar = () => {
         </Link>
 
         <Link to={"/category/music"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<MusicNoteIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Music
             </Button>
           </li>
         </Link>
         <Link to={"/category/movies"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<MovieIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Movies
             </Button>
           </li>
         </Link>
         <Link to={"/category/Gaming"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<SportsEsportsIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Gaming
             </Button>
           </li>
         </Link>
         <Link to={"/category/news"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<NewspaperIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               News
             </Button>
           </li>
         </Link>
         <Link to={"/category/Sports"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<SportsCricketIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Sports
             </Button>
           </li>
         </Link>
         <Link to={"/category/learning"}>
-          <li className="px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             {" "}
             <Button
               variant="text"
               startIcon={<SchoolIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Learning
             </Button>
           </li>{" "}
         </Link>
         <Link to={"/category/fashion"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<DiamondIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Fashion & Beauty
             </Button>
           </li>
         </Link>
         <Link to={"/category/podcast"}>
-          <li className="cursor-pointer px-4 py-1 hover:bg-gray-200 rounded-lg">
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg" +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
             <Button
               variant="text"
               startIcon={<PodcastsIcon />}
               className="pl-2"
-              style={{ color: "black", textTransform: "none" }}
+              style={{
+                color: !theme ? "white" : "black",
+                textTransform: "none",
+              }}
             >
               Podcast
             </Button>
@@ -186,54 +307,94 @@ const Sidebar = () => {
 
       <div className="border border-black my-2"></div>
       <ul>
-        <li className="px-4 py-1 hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           {" "}
           <Button
             variant="text"
             startIcon={<SettingsIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Setting
           </Button>
         </li>{" "}
-        <li className="px-4 py-1 hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           <Button
             variant="text"
             startIcon={<FlagIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Report History
           </Button>
         </li>
-        <li className="px-4 py-1 hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           {" "}
           <Button
             variant="text"
             startIcon={<HelpOutlineIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Help
           </Button>
         </li>
-        <li className="px-4 py-1 hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           <Button
             variant="text"
             startIcon={<FeedbackIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Feedback
           </Button>
         </li>
-        <li className="px-4 py-1 hover:bg-gray-200 rounded-lg">
+        <li
+          className={
+            "cursor-pointer px-4 py-1  rounded-lg" +
+            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+          }
+        >
           <Button
             variant="text"
             startIcon={<FeedbackIcon />}
             className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           >
             Vikramaitya Singh
           </Button>

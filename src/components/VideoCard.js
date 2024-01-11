@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import channelLogo from "../images/chatIcon.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLive } from "../utils/appSlice";
 const VideoCard = ({ video, ad, type }) => {
   // destruction video details
@@ -8,22 +8,23 @@ const VideoCard = ({ video, ad, type }) => {
   const { title, channelTitle, description, liveBroadcastContent } =
     video.snippet;
   const { medium } = video.snippet.thumbnails;
-
-  if (liveBroadcastContent === "live") {
-    dispatch(setLive(true));
-  } else {
-    dispatch(setLive(false));
-  }
-
+  useEffect(() => {
+    if (liveBroadcastContent === "live") {
+      dispatch(setLive(true));
+    } else {
+      dispatch(setLive(false));
+    }
+  }, []);
+  const theme = useSelector((store) => store.app.theme);
   return (
     <div
-      className={`text-black p-2 ${
+      className={` p-2 ${
         type === "popular" || type === "category"
-          ? "w-96 flex flex-col"
+          ? "w-96 flex flex-col "
           : type === "search"
-          ? " flex  md:flex-row flex-col md:h-52"
-          : "flex md:flex-row flex-col w-screen md:w-[500px] md:h-32"
-      }`}
+          ? " flex  md:flex-row flex-col md:h-52 "
+          : "flex md:flex-row flex-col w-screen md:w-[500px] md:h-32 "
+      } ${!theme ? "text-white" : "text-black"}`}
     >
       <div className={type === "related" ? "w-50" : " w-[350px] h-full"}>
         <img
@@ -40,7 +41,7 @@ const VideoCard = ({ video, ad, type }) => {
         <h1
           className={`font-bold ${
             type === "related" ? "line-clamp-1" : "line-clamp-2"
-          } text-black overflow-hidden`}
+          } overflow-hidden`}
         >
           {title}
         </h1>
@@ -52,10 +53,8 @@ const VideoCard = ({ video, ad, type }) => {
             src={channelLogo}
           />
           <div className={`type==='related'? "flex flex-col" : "flex"`}>
-            <span className="py-1 px-3 font-bold text-gray-600">
-              {channelTitle}
-            </span>
-            <p className="text-gray-600 font-bold text-sm pl-3">1 hour ago</p>
+            <span className="py-1 px-3 font-bold">{channelTitle}</span>
+            <p className=" font-bold text-sm pl-3">1 hour ago</p>
           </div>
         </div>
 

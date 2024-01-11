@@ -11,7 +11,7 @@ const PopularVideo = () => {
   if (!videos) return <ShimmerVideoContainer type={"popular"} />;
   return (
     <div>
-      <VideoContainer videos={videos} type={"popular"} />{" "}
+      <VideoContainer videos={videos} type={"popular"} />
     </div>
   );
 };

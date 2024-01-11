@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const ShimmerVideoCard = ({ type }) => {
+  const theme = useSelector((store) => store.app.theme);
   const shimmerStyles = {
     background: `linear-gradient(-90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)`,
     backgroundSize: `400% 100%`,
@@ -12,19 +14,16 @@ const ShimmerVideoCard = ({ type }) => {
     <div
       className={`${
         type === "popular" ? "flex flex-col w-96 p-2" : "flex w-full p-2"
-      } `}
+      }  ${!theme ? "bg-gray-800 text-white" : "bg-gray-200 text-black"} `}
     >
-      <div
-        className="w-[350px] h-52 bg-gray-300 rounded-lg"
-        style={shimmerStyles}
-      ></div>
+      <div className="w-[350px] h-52 rounded-lg" style={shimmerStyles}></div>
       <div
         className={` flex items-center p-2 ${
           type === "popular" ? "" : " w-full"
         }`}
       >
-        <div className="rounded-full h-8 w-8 bg-gray-200"></div>
-        <div className="w-full bg-gray-200 py-2 pr-4 rounded-lg mx-2 h-6"></div>
+        <div className="rounded-full h-8 w-8"></div>
+        <div className="w-full py-2 pr-4 rounded-lg mx-2 h-6"></div>
       </div>
     </div>
   );

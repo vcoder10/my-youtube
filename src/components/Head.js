@@ -1,29 +1,41 @@
-import hamburger from "../images/hamburger-menu.svg";
+import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../images/logo.jpg";
-import { useDispatch } from "react-redux";
-import { toggleMenu } from "../utils/appSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleMenu, toggleTheme } from "../utils/appSlice";
 
 import SearchBar from "./SearchBar";
 import { Button } from "@mui/material";
 import NotificationAddIcon from "@mui/icons-material/NotificationAdd";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 const Head = () => {
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
-
+  const theme = useSelector((store) => store.app.theme);
+  const handleTheme = () => {
+    dispatch(toggleTheme());
+  };
   return (
-    <div className="fixed  w-full  py-5 px-2 mt-0 z-30 md:grid md:grid-flow-col md:grid-cols-12 flex items-center bg-gray-100">
+    <div
+      className={
+        "fixed  w-full  py-5 px-2 mt-0 z-30 md:grid md:grid-flow-col md:grid-cols-12 flex items-center bg-white " +
+        (!theme ? "bg-black" : "bg-white")
+      }
+    >
       <div className="flex md:col-span-2 py-1">
-        <img
-          className="hidden md:inline-block h-8 cursor-pointer"
-          alt="hamburger"
-          src={hamburger}
+        <Button
+          variant="text"
+          startIcon={<MenuIcon style={{ fontSize: "2.25rem" }} />}
+          style={{
+            color: !theme ? "white" : "black",
+            textTransform: "none",
+          }}
           onClick={toggleMenuHandler}
-        />
+        ></Button>
         <a href="/">
           <img className="h-8 px-1 md:px-2" alt="logo" src={logo} />
         </a>
@@ -36,7 +48,10 @@ const Head = () => {
         <Button
           variant="text"
           startIcon={<AccountCircleIcon style={{ fontSize: "1.75rem" }} />}
-          style={{ color: "black", textTransform: "none" }}
+          style={{
+            color: !theme ? "white" : "black",
+            textTransform: "none",
+          }}
         ></Button>
 
         <div className="hidden md:inline-block">
@@ -44,7 +59,10 @@ const Head = () => {
             variant="text"
             startIcon={<NotificationAddIcon style={{ fontSize: "1.75rem" }} />}
             className=""
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           ></Button>
         </div>
         <div className="hidden md:inline-block">
@@ -52,9 +70,22 @@ const Head = () => {
             variant="text"
             startIcon={<CreateNewFolderIcon style={{ fontSize: "1.75rem" }} />}
             className=""
-            style={{ color: "black", textTransform: "none" }}
+            style={{
+              color: !theme ? "white" : "black",
+              textTransform: "none",
+            }}
           ></Button>
         </div>
+        <Button
+          variant="text"
+          startIcon={<DarkModeIcon style={{ fontSize: "1.75rem" }} />}
+          className=""
+          style={{
+            color: !theme ? "white" : "black",
+            textTransform: "none",
+          }}
+          onClick={handleTheme}
+        ></Button>
       </div>
     </div>
   );

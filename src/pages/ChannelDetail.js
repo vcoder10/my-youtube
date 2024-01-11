@@ -16,6 +16,7 @@ const ChannelDetail = () => {
 
   const videos = useSelector((store) => store.video.channelAllVideo);
   const channelDetails = useSelector((store) => store.video.channelDetails);
+  const theme = useSelector((store) => store.app.theme);
 
   if (!videos && !channelDetails)
     return <ShimmerVideoContainer type={"popular"} />;
@@ -23,7 +24,11 @@ const ChannelDetail = () => {
   const { videoCount, subscriberCount } = channelDetails.statistics;
 
   return (
-    <div className="mt-24 flex flex-col">
+    <div
+      className={`mt-24 flex flex-col  ${
+        !theme ? "bg-gray-800 text-white" : "bg-gray-200 text-black"
+      }`}
+    >
       <div className="flex items-center px-2 md:px-10">
         <div className="hidden md:inline-block w-48">
           <img
@@ -35,12 +40,10 @@ const ChannelDetail = () => {
         <div className="md:pl-10 pl-2">
           <div className="">
             <h1 className="font-bold text-3xl mb-2">{title}</h1>
-            <span className="pr-1 text-gray-600">{customUrl}</span>
-            <span className="px-1 text-gray-600">
-              {subscriberCount} Subscriber
-            </span>
-            <span className="px-1 text-gray-600">{videoCount} video</span>
-            <div className="mt-2 text-gray-600">
+            <span className="pr-1">{customUrl}</span>
+            <span className="px-1">{subscriberCount} Subscriber</span>
+            <span className="px-1 ">{videoCount} video</span>
+            <div className="mt-2 ">
               <div>
                 {description.split("\n").map((line, index) => (
                   <p key={index}>{line}</p>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API } from "../utils/constant";
 import { addSearchedMovie, cacheResults } from "../utils/searchSlice";
 import { useNavigate } from "react-router-dom";
-import useGetPopularVideo from "../hooks/useGetPopularVideo";
+import SearchIcon from "@mui/icons-material/Search";
+import Button from "./Button";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,6 +15,7 @@ const SearchBar = () => {
   const navigate = useNavigate();
   const cache = useSelector((store) => store.search);
   const dispatch = useDispatch();
+  const theme = useSelector((store) => store.app.theme);
   useEffect(() => {
     const timer = setTimeout(() => {
       if (cache[searchQuery]) {
@@ -81,7 +81,9 @@ const SearchBar = () => {
     <>
       <div>
         <input
-          className="w-2/3 ml-4 md:ml-24 px-3 border border-gray-400 py-1 md:py-2 rounded-l-full"
+          className={`w-2/3 ml-4 md:ml-24 px-3 border border-gray-300 py-1 md:py-2 rounded-l-full ${
+            !theme ? "bg-black text-white" : "text-black bg-white"
+          }`}
           type="text"
           placeholder="Search"
           value={searchQuery}
@@ -94,10 +96,12 @@ const SearchBar = () => {
           }}
         />
         <button
-          className="border border-gray-400 py-1 md:py-2  px-2 md:px-5 rounded-r-full bg-gray-100"
+          className={`border border-gray-300 py-2 md:py-2 px-4 md:px-5 rounded-r-full ${
+            !theme ? "text-white" : "text-black"
+          }`}
           onClick={handleSearchVideo}
         >
-          🔍
+          <SearchIcon style={{ fontSize: "1.2rem" }} />
         </button>
       </div>
       {showSuggestions && suggestions.length >= 1 && (
@@ -111,7 +115,10 @@ const SearchBar = () => {
                 }`}
                 onClick={() => handleSearchBasedOnSuggestion(s)}
               >
-                <span className=" hidden md:block md:mr-3">🔍</span> {s}
+                <span className=" hidden md:flex md:mr-3">
+                  <SearchIcon style={{ fontSize: "1.2rem" }} />
+                </span>{" "}
+                {s}
               </li>
             ))}
           </ul>
