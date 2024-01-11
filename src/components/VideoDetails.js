@@ -14,32 +14,38 @@ const VideoDetails = ({ movieId }) => {
   const { channelId, title, description, channelTitle } = details?.snippet;
 
   return (
-    <div className="flex flex-col p-2 m-2 ">
-      <h1 className="text-2xl my-1 font-bold line-clamp-2 text-black">
+    <div className="flex flex-col p-2  md:w-full w-screen ">
+      <h1 className="text-lg md:text-2xl my-1 font-bold line-clamp-2 text-black">
         {title}
       </h1>
       <div className="flex justify-between">
         <div className="flex justify-between items-center ">
           <Link to={"/channel/" + channelId}>
             <div className="flex">
-              <img className="w-12 h-12 mr-2" alt="logo" src={channleLogo} />
+              <img
+                className="w-8 md:w-12 h-8 md:h-12 mr-2"
+                alt="logo"
+                src={channleLogo}
+              />
               <div className="flex flex-col">
-                <h2 className="font-bold">{channelTitle}</h2>
+                <h2 className="md:font-bold md:text-lg text-sm">
+                  {channelTitle}
+                </h2>
                 <span className="text-sm">1M Subscriber</span>
               </div>
             </div>
           </Link>
-          <button className="text-bold ml-4 h-10 bg-red-700 text-white px-4 rounded-full ">
+          <button className="md:text-bold ml-3 md:ml-4 h-8 md:h-10 bg-red-700 text-white px-2 md:px-4 rounded-full ">
             Subscribe
           </button>
         </div>
-        <div className="flex bg-gray-200  py-3 px-6 h-12 rounded-full items-center">
+        <div className="flex bg-gray-200 mr-1  md:py-3 px-2 md:px-6 h-8 md:h-12 rounded-full items-center">
           <img
             alt="like"
             src={likeIcon}
-            className="w-8 h-8  mr-2 rounded-full"
+            className="w-6 md:w-8 h-6  md:h-8  mr-2 rounded-full"
           />
-          <span>{likeCount}</span>
+          <span className="md:block hidden">{likeCount}</span>
         </div>
       </div>
       <div className="mt-4 py-3 bg-gray-200 rounded-lg p-2">

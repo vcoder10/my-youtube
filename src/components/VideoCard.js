@@ -21,8 +21,8 @@ const VideoCard = ({ video, ad, type }) => {
         type === "popular" || type === "category"
           ? "w-96 flex flex-col"
           : type === "search"
-          ? " flex  md:flex-row flex-col h-52"
-          : " hidden  md:flex :w-[500px] h-32"
+          ? " flex  md:flex-row flex-col md:h-52"
+          : "flex md:flex-row flex-col w-screen md:w-[500px] md:h-32"
       }`}
     >
       <div className={type === "related" ? "w-50" : " w-[350px] h-full"}>
@@ -59,7 +59,9 @@ const VideoCard = ({ video, ad, type }) => {
           </div>
         </div>
 
-        <div className="pt-4">{type === "search" && <p>{description}</p>}</div>
+        <div className="hidden md:block pt-4">
+          {type === "search" && <p>{description}</p>}
+        </div>
       </div>
     </div>
   );

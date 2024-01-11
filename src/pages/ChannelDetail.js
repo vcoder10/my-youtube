@@ -24,15 +24,15 @@ const ChannelDetail = () => {
 
   return (
     <div className="mt-24 flex flex-col">
-      <div className="flex items-center px-10">
-        <div className="w-96">
+      <div className="flex items-center px-2 md:px-10">
+        <div className="hidden md:inline-block w-48">
           <img
             className="rounded-full w-full"
             alt="channel logo"
             src={thumbnails.medium.url ? thumbnails.medium.url : userIcon}
           />
         </div>
-        <div className="pl-10">
+        <div className="md:pl-10 pl-2">
           <div className="">
             <h1 className="font-bold text-3xl mb-2">{title}</h1>
             <span className="pr-1 text-gray-600">{customUrl}</span>
@@ -48,7 +48,7 @@ const ChannelDetail = () => {
               </div>
             </div>
           </div>
-          <button className="text-bold mt-4 h-10 bg-red-700 text-white px-4 rounded-full ">
+          <button className="text-bold mt-4 h-10 w-full md:w-28 bg-red-700 text-white px-4 rounded-full ">
             Subscribe
           </button>
         </div>

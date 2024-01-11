@@ -24,13 +24,11 @@ const WatchPage = () => {
     };
   }, []);
   return (
-    <div className="flex-col flex md:flex-row mx-2 md:ml-20 ">
-      <div className=" flex flex-col  md:w-[900px] mt-24 ">
-        <div className=" ">
+    <div className="flex-col flex md:flex-row  md:ml-20 ">
+      <div className=" flex flex-col mt-24 ">
+        <div className="">
           <iframe
-            className="rounded-lg w-[450px] h-[250px] md:h-[500px] md:w-[900px] mt-20 md:mt-0 pl-4"
-            width="900"
-            height="500"
+            className="rounded-xl w-screen h-[250px] md:h-[500px] md:w-[900px] md:mt-0 "
             src={`https://www.youtube.com/embed/${id}?autoplay=1`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -101,7 +101,7 @@ const SearchBar = () => {
         </button>
       </div>
       {showSuggestions && suggestions.length >= 1 && (
-        <div className="hidden md:inline-block fixed bg-white py-2 px-2 w-[12rem] md:w-[42rem] ml-4 md:ml-24 mt-12 border border-gray-200 rounded-lg shadow-lg ">
+        <div className=" fixed bg-white py-2 px-2 w-[12rem] md:w-[42rem] ml-4 md:ml-24 mt-12 border border-gray-200 rounded-lg shadow-lg ">
           <ul>
             {suggestions.map((s, index) => (
               <li
@@ -111,7 +111,7 @@ const SearchBar = () => {
                 }`}
                 onClick={() => handleSearchBasedOnSuggestion(s)}
               >
-                <span className=" mr-0 mr-3">🔍</span> {s}
+                <span className=" hidden md:block md:mr-3">🔍</span> {s}
               </li>
             ))}
           </ul>
