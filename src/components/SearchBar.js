@@ -81,7 +81,7 @@ const SearchBar = () => {
     <>
       <div>
         <input
-          className="px-5 w-2/3 border border-gray-400 p-2 rounded-l-full"
+          className="w-2/3 ml-4 md:ml-24 px-3 border border-gray-400 py-1 md:py-2 rounded-l-full"
           type="text"
           placeholder="Search"
           value={searchQuery}
@@ -94,24 +94,24 @@ const SearchBar = () => {
           }}
         />
         <button
-          className="border border-gray-400 py-2 px-5 rounded-r-full bg-gray-100"
+          className="border border-gray-400 py-1 md:py-2  px-2 md:px-5 rounded-r-full bg-gray-100"
           onClick={handleSearchVideo}
         >
           🔍
         </button>
       </div>
       {showSuggestions && suggestions.length >= 1 && (
-        <div className="fixed bg-white py-2 px-2 w-[41rem] mt-12 border border-gray-200 rounded-lg shadow-lg ">
+        <div className="hidden md:inline-block fixed bg-white py-2 px-2 w-[12rem] md:w-[42rem] ml-4 md:ml-24 mt-12 border border-gray-200 rounded-lg shadow-lg ">
           <ul>
             {suggestions.map((s, index) => (
               <li
                 key={index}
-                className={`py-2 px-4 hover:bg-gray-200 ${
+                className={`py-2 md:px-4 hover:bg-gray-200 ${
                   index === selectedSuggestionIndex ? "bg-gray-200" : ""
                 }`}
                 onClick={() => handleSearchBasedOnSuggestion(s)}
               >
-                <span className="mr-3">🔍</span> {s}
+                <span className=" mr-0 mr-3">🔍</span> {s}
               </li>
             ))}
           </ul>

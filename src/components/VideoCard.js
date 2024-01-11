@@ -1,18 +1,28 @@
 import React from "react";
 import channelLogo from "../images/chatIcon.png";
+import { useDispatch } from "react-redux";
+import { setLive } from "../utils/appSlice";
 const VideoCard = ({ video, ad, type }) => {
   // destruction video details
-  const { title, channelTitle, description } = video.snippet;
+  const dispatch = useDispatch();
+  const { title, channelTitle, description, liveBroadcastContent } =
+    video.snippet;
   const { medium } = video.snippet.thumbnails;
+
+  if (liveBroadcastContent === "live") {
+    dispatch(setLive(true));
+  } else {
+    dispatch(setLive(false));
+  }
 
   return (
     <div
       className={`text-black p-2 ${
-        type === "popular" || type === "category" || type === "playlists"
+        type === "popular" || type === "category"
           ? "w-96 flex flex-col"
           : type === "search"
-          ? " flex h-52"
-          : "flex w-[500px] h-32"
+          ? " flex  md:flex-row flex-col h-52"
+          : " hidden  md:flex :w-[500px] h-32"
       }`}
     >
       <div className={type === "related" ? "w-50" : " w-[350px] h-full"}>

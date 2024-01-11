@@ -47,16 +47,18 @@ const Sidebar = () => {
             Shorts
           </Button>
         </li>
-        <li className="cursor-pointer px-4 py-1  hover:bg-gray-200 rounded-lg">
-          <Button
-            variant="text"
-            startIcon={<StreamIcon />}
-            className="pl-2"
-            style={{ color: "black", textTransform: "none" }}
-          >
-            Live
-          </Button>
-        </li>
+        <Link to={"/live"}>
+          <li className="cursor-pointer px-4 py-1  hover:bg-gray-200 rounded-lg">
+            <Button
+              variant="text"
+              startIcon={<StreamIcon />}
+              className="pl-2"
+              style={{ color: "black", textTransform: "none" }}
+            >
+              Live
+            </Button>
+          </li>
+        </Link>
         <li className="cursor-pointer px-4 py-1  hover:bg-gray-200 rounded-lg">
           <Button
             variant="text"

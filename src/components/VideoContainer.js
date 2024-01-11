@@ -7,7 +7,7 @@ const VideoContainer = ({ videos, type }) => {
   return (
     <div
       className={
-        "  absolute mt-[5rem] " +
+        "  absolute mt-[5rem] justify-center " +
         (type === "popular" || type === "category"
           ? "flex flex-wrap"
           : "flex flex-col")

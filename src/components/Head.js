@@ -16,42 +16,45 @@ const Head = () => {
   };
 
   return (
-    <div className="fixed w-full bg-blue-100 grid grid-flow-col p-5 mt-0 z-30">
-      <div className="flex col-span-1">
+    <div className="fixed  w-full  py-5 px-2 mt-0 z-30 md:grid md:grid-flow-col md:grid-cols-12 flex items-center bg-gray-100">
+      <div className="flex md:col-span-2 py-1">
         <img
-          className="h-8 cursor-pointer"
+          className="hidden md:inline-block h-8 cursor-pointer"
           alt="hamburger"
           src={hamburger}
           onClick={toggleMenuHandler}
         />
         <a href="/">
-          <img className="h-8 mx-2" alt="logo" src={logo} />
+          <img className="h-8 px-1 md:px-2" alt="logo" src={logo} />
         </a>
       </div>
-      <div className="flex flex-col col-span-10 px-20 ">
+      <div className="flex flex-col w-full md:col-span-8 ">
         <SearchBar />
       </div>
 
-      <div className="col-span-1 flex items-center">
-        <Button
-          variant="text"
-          startIcon={<CreateNewFolderIcon style={{ fontSize: "1.75rem" }} />}
-          className=""
-          style={{ color: "black", textTransform: "none" }}
-        ></Button>
-        <Button
-          variant="text"
-          startIcon={<NotificationAddIcon style={{ fontSize: "1.75rem" }} />}
-          className=""
-          style={{ color: "black", textTransform: "none" }}
-        ></Button>
+      <div className=" flex items-center flex-row-reverse md:col-span-2">
         <Button
           variant="text"
           startIcon={<AccountCircleIcon style={{ fontSize: "1.75rem" }} />}
-          className=""
           style={{ color: "black", textTransform: "none" }}
         ></Button>
-        {/* <img className="h-8" alt="user-icon" src={userIcon} /> */}
+
+        <div className="hidden md:inline-block">
+          <Button
+            variant="text"
+            startIcon={<NotificationAddIcon style={{ fontSize: "1.75rem" }} />}
+            className=""
+            style={{ color: "black", textTransform: "none" }}
+          ></Button>
+        </div>
+        <div className="hidden md:inline-block">
+          <Button
+            variant="text"
+            startIcon={<CreateNewFolderIcon style={{ fontSize: "1.75rem" }} />}
+            className=""
+            style={{ color: "black", textTransform: "none" }}
+          ></Button>
+        </div>
       </div>
     </div>
   );

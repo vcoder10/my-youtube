@@ -2,7 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      display: ["responsive", "hover", "focus", "group-hover"],
+    },
   },
   plugins: [],
 };

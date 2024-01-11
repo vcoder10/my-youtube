@@ -23,10 +23,19 @@ const appSlice = createSlice({
     toggleTheme: (state) => {
       state.theme = !state.theme;
     },
+    setLive: (state, action) => {
+      state.live = action.payload;
+    },
   },
 });
 
-export const { toggleMenu, closeMenu, toggleLive, openMenu, toggleTheme } =
-  appSlice.actions;
+export const {
+  toggleMenu,
+  closeMenu,
+  toggleLive,
+  openMenu,
+  toggleTheme,
+  setLive,
+} = appSlice.actions;
 
 export default appSlice.reducer;

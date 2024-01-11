@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GOOGLE_API_KEY } from "../utils/constant";
 import { useEffect } from "react";
 import { addPopularVideo } from "../utils/videoSlice";
 
 const useGetPopularVideo = () => {
   const dispatch = useDispatch();
+  const popularVideo = useSelector((store) => store.video.popularVideo);
 
   const getPopularVideo = async () => {
     const data = await fetch(
@@ -14,7 +15,7 @@ const useGetPopularVideo = () => {
     dispatch(addPopularVideo(json.items));
   };
   useEffect(() => {
-    getPopularVideo();
+    !popularVideo && getPopularVideo();
   }, []);
 };
 

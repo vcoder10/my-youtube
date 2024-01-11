@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeMenu } from "../utils/appSlice";
+import { closeMenu, openMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "../components/CommentsContainer";
 import LiveChat from "../components/LiveChat";
@@ -18,13 +18,17 @@ const WatchPage = () => {
 
   useEffect(() => {
     dispatch(closeMenu());
+
+    return () => {
+      dispatch(openMenu());
+    };
   }, []);
   return (
-    <div className="flex  ml-20 ">
-      <div className=" flex flex-col w-[900px] mt-24">
+    <div className="flex-col flex md:flex-row mx-2 md:ml-20 ">
+      <div className=" flex flex-col  md:w-[900px] mt-24 ">
         <div className=" ">
           <iframe
-            className="rounded-xl"
+            className="rounded-lg w-[450px] h-[250px] md:h-[500px] md:w-[900px] mt-20 md:mt-0 pl-4"
             width="900"
             height="500"
             src={`https://www.youtube.com/embed/${id}?autoplay=1`}

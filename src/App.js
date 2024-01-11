@@ -3,43 +3,14 @@ import Body from "./components/Body";
 import Head from "./components/Head";
 import "./index.css";
 import store from "./utils/store";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  // createBrowserRouter,
-  // RouterProvider,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import WatchPage from "./pages/WatchPage";
 import MainContainer from "./pages/MainContainer";
 import SearchResult from "./pages/SearchResult";
 import ChannelDetail from "./pages/ChannelDetail";
 import CategoryVideos from "./pages/CategoryVideos";
+import Live from "./pages/Live";
 
-// const appRouter = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Body />,
-//     children: [
-//       {
-//         path: "/",
-//         element: <MainContainer />,
-//       },
-//       {
-//         path: "/watch",
-//         element: <WatchPage />,
-//       },
-//       {
-//         path: "/searchResult",
-//         element: <SearchResult />,
-//       },
-//       {
-//         path: "/channel",
-//         element: <ChannelDetail />,
-//       },
-//     ],
-//   },
-// ]);
 function App() {
   return (
     <Provider store={store}>
@@ -57,6 +28,7 @@ function App() {
                 path="/searchResult/:searchQuery"
                 element={<SearchResult />}
               />
+              <Route path="/live" element={<Live />} />
             </Route>
           </Routes>
         </div>

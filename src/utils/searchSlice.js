@@ -5,6 +5,7 @@ const searchSlice = createSlice({
   initialState: {
     searchedResults: null,
     categoryByVideos: null,
+    liveVideos: null,
     searchCache: {},
   },
   reducers: {
@@ -22,13 +23,16 @@ const searchSlice = createSlice({
     addCategoryByVideos: (state, action) => {
       state.categoryByVideos = action.payload;
     },
+    addLiveVideos: (state, action) => {
+      state.liveVideos = action.payload;
+    },
   },
 });
 
 export const {
   cacheResults,
   addSearchedMovie,
-
+  addLiveVideos,
   addCategoryByVideos,
 } = searchSlice.actions;
 

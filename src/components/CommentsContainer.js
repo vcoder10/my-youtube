@@ -8,7 +8,7 @@ const CommentsContainer = () => {
   const noOfComment = videoDetails?.statistics?.commentCount;
 
   return (
-    <div className="  w-[900px]">
+    <div className=" w-[480px] md:w-[900px]">
       <h1 className="font-bold text-2xl">{noOfComment} Comments</h1>
       {commentsData.map((comment, index) => (
         <Comment key={index} data={comment} />
