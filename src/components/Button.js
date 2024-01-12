@@ -1,9 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Button = ({ name }) => {
+  const theme = useSelector((store) => store.app.theme);
   return (
     <div>
-      <button className="px-3 py-1 m-2 bg-gray-200 rounded-lg">{name}</button>
+      <button
+        className={`px-3 py-1 m-2  rounded-lg ${
+          !theme ? "bg-gray-800 text-white" : "bg-gray-200 text-black"
+        }`}
+      >
+        {name}
+      </button>
     </div>
   );
 };

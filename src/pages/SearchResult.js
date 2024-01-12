@@ -10,7 +10,7 @@ const SearchResult = () => {
   if (!searchedVideos) return <ShimmerVideoContainer type={"search"} />;
   return (
     <div className="grow w-full h-full overflow-y-auto pl-4 fixed">
-      <div>
+      <div className="mt-24">
         <VideoContainer videos={searchedVideos} type={"search"} />
       </div>
     </div>

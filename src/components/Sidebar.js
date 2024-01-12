@@ -110,7 +110,11 @@ const Sidebar = () => {
           </Button>
         </li>
       </ul>
-      <div className="border border-white mt-2 mx-2"></div>
+      <div
+        className={`border mt-2 mx-2 ${
+          !theme ? "border-gray-800" : "border-gray-200"
+        }`}
+      ></div>
       <h1
         className={
           "pt-2 text-xl mx-10 font-bold " +

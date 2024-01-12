@@ -26,7 +26,7 @@ const ChannelDetail = () => {
   return (
     <div
       className={`mt-24 flex flex-col  ${
-        !theme ? "bg-gray-800 text-white" : "bg-gray-200 text-black"
+        !theme ? "bg-black text-white" : "bg-whit text-black"
       }`}
     >
       <div className="flex items-center px-2 md:px-10">
@@ -51,13 +51,21 @@ const ChannelDetail = () => {
               </div>
             </div>
           </div>
-          <button className="text-bold mt-4 h-10 w-full md:w-28 bg-red-700 text-white px-4 rounded-full ">
+          <button
+            className={`text-bold mt-4 h-10 w-full md:w-28  px-4 rounded-full ${
+              !theme ? "bg-white text-black" : "bg-red-700 text-white"
+            }`}
+          >
             Subscribe
           </button>
         </div>
       </div>
       <div className="border border-gray-500 mt-6"></div>
-      <div>
+      <div
+        className={`mt-6 w-full ${
+          !theme ? "bg-black text-white" : "bg-whit text-black"
+        }`}
+      >
         <VideoContainer videos={videos} type={"category"} />{" "}
       </div>
     </div>

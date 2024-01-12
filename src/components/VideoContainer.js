@@ -5,15 +5,17 @@ import { useSelector } from "react-redux";
 
 const VideoContainer = ({ videos, type }) => {
   const theme = useSelector((store) => store.app.theme);
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   if (!videos) return null;
+  if (isMenuOpen && type === "related") type = "popular";
 
   return (
     <div
       className={
-        "  absolute mt-24 justify-center " +
+        "  absolute  justify-center " +
         (type === "popular" || type === "category"
-          ? "flex flex-wrap "
-          : "flex flex-col ") +
+          ? " flex flex-wrap "
+          : " flex flex-col ") +
         (!theme ? "bg-black" : "bg-white")
       }
     >

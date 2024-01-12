@@ -15,6 +15,7 @@ const WatchPage = () => {
   const dispatch = useDispatch();
   // dispatch(clearVideoDetails());
   const live = useSelector((store) => store.app.live);
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   useEffect(() => {
     dispatch(closeMenu());
@@ -24,7 +25,11 @@ const WatchPage = () => {
     };
   }, []);
   return (
-    <div className="flex-col flex md:flex-row  md:ml-20 ">
+    <div
+      className={`flex-col flex md:flex-row ${
+        isMenuOpen ? "md:ml-0" : "md:ml-20"
+      } `}
+    >
       <div className=" flex flex-col mt-24 h-full ">
         <div className="">
           <iframe

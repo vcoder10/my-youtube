@@ -15,7 +15,7 @@ const CategoryVideos = () => {
   if (!videos) return <ShimmerVideoContainer type={"popular"} />;
 
   return (
-    <div className="">
+    <div className="mt-24">
       <div>
         <VideoContainer videos={videos} type={"category"} />
       </div>

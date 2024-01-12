@@ -96,7 +96,7 @@ const SearchBar = () => {
           }}
         />
         <button
-          className={`border border-gray-300 py-2 md:py-2 px-4 md:px-5 rounded-r-full ${
+          className={`border border-gray-300 py-1 md:py-2 px-2 md:px-5 rounded-r-full ${
             !theme ? "text-white" : "text-black"
           }`}
           onClick={handleSearchVideo}
@@ -105,17 +105,29 @@ const SearchBar = () => {
         </button>
       </div>
       {showSuggestions && suggestions.length >= 1 && (
-        <div className=" fixed bg-white py-2 px-2 w-[12rem] md:w-[42rem] ml-4 md:ml-24 mt-12 border border-gray-200 rounded-lg shadow-lg ">
+        <div
+          className={` fixed py-2 px-2 w-[12rem] md:w-[42rem] ml-4 md:ml-24 mt-12 border  rounded-lg shadow-lg ${
+            !theme
+              ? "bg-black border-gray-800 text-white"
+              : "bg-white border-gray-200 text-black"
+          }`}
+        >
           <ul>
             {suggestions.map((s, index) => (
               <li
                 key={index}
-                className={`py-2 md:px-4 hover:bg-gray-200 ${
-                  index === selectedSuggestionIndex ? "bg-gray-200" : ""
+                className={`flex py-2 md:px-4 ${
+                  !theme ? "hover:bg-gray-800" : "hover:bg-gray-200"
+                } ${
+                  index === selectedSuggestionIndex
+                    ? !theme
+                      ? "bg-gray-800"
+                      : "bg-gray-200"
+                    : ""
                 }`}
                 onClick={() => handleSearchBasedOnSuggestion(s)}
               >
-                <span className=" hidden md:flex md:mr-3">
+                <span className="hidden md:flex md:mr-3">
                   <SearchIcon style={{ fontSize: "1.2rem" }} />
                 </span>{" "}
                 {s}

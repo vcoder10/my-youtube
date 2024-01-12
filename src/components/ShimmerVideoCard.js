@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const ShimmerVideoCard = ({ type }) => {
   const theme = useSelector((store) => store.app.theme);
   const shimmerStyles = {
-    background: `linear-gradient(-90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)`,
     backgroundSize: `400% 100%`,
     animation: `shimmer 1.5s infinite linear`,
     borderRadius: `8px`,

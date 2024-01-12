@@ -10,7 +10,7 @@ const PopularVideo = () => {
   const videos = useSelector((store) => store.video.popularVideo);
   if (!videos) return <ShimmerVideoContainer type={"popular"} />;
   return (
-    <div>
+    <div className="pt-12">
       <VideoContainer videos={videos} type={"popular"} />
     </div>
   );
