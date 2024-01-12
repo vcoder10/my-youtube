@@ -81,7 +81,7 @@ const SearchBar = () => {
     <>
       <div>
         <input
-          className={`w-2/3 ml-4 md:ml-24 px-3 border border-gray-300 py-1 md:py-2 rounded-l-full ${
+          className={`w-2/3 ml-4 md:ml-24 px-3 border border-gray-300 py-0 md:py-2 rounded-l-full ${
             !theme ? "bg-black text-white" : "text-black bg-white"
           }`}
           type="text"
@@ -96,17 +96,17 @@ const SearchBar = () => {
           }}
         />
         <button
-          className={`border border-gray-300 py-1 md:py-2 px-2 md:px-5 rounded-r-full ${
+          className={`border border-gray-300 py-0 md:py-2 px-1 md:px-5 rounded-r-full ${
             !theme ? "text-white" : "text-black"
           }`}
           onClick={handleSearchVideo}
         >
-          <SearchIcon style={{ fontSize: "1.2rem" }} />
+          <SearchIcon style={{ fontSize: "1.3rem" }} />
         </button>
       </div>
       {showSuggestions && suggestions.length >= 1 && (
         <div
-          className={` fixed py-2 px-2 w-[12rem] md:w-[42rem] ml-4 md:ml-24 mt-12 border  rounded-lg shadow-lg ${
+          className={` fixed py-2 px-2 w-72 md:w-[42rem] ml-0 md:ml-24  mt-8 md:mt-12 border  rounded-lg shadow-lg ${
             !theme
               ? "bg-black border-gray-800 text-white"
               : "bg-white border-gray-200 text-black"
