@@ -1,5 +1,5 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from "../images/logo.jpg";
+import lgLogo from "../images/logo.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu, toggleTheme } from "../utils/appSlice";
 import smLogo from "../images/favicon.png";
@@ -22,7 +22,7 @@ const Head = () => {
   return (
     <div
       className={
-        "fixed  w-full  py-5 px-2 mt-0 z-30 md:grid md:grid-flow-col md:grid-cols-12 flex items-center " +
+        "fixed  w-full  py-1 md:py-5 px-2 mt-0 z-30 md:grid md:grid-flow-col md:grid-cols-12 flex items-center " +
         (!theme ? "bg-black" : "bg-white")
       }
     >
@@ -39,7 +39,12 @@ const Head = () => {
           ></Button>
         </div>
         <a href="/">
-          <img className="h-8 px-1 md:px-2" alt="logo" src={smLogo} />
+          <img className="w-20 h-10 px-1 md:hidden" alt="logo" src={smLogo} />
+          <img
+            className="hidden h-8 px-1 md:inline-block"
+            alt="logo"
+            src={lgLogo}
+          />
         </a>
       </div>
       <div className="flex flex-col w-full md:col-span-8 ">
