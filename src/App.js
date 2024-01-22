@@ -8,10 +8,15 @@ import SearchResult from "./pages/SearchResult";
 import ChannelDetail from "./pages/ChannelDetail";
 import CategoryVideos from "./pages/CategoryVideos";
 import Live from "./pages/Live";
+// import themeContext from "./utils/themeContext";
+// import { useState } from "react";
 
 function App() {
   const theme = useSelector((store) => store.app.theme);
+  //const [theme, setTheme] = useState(true);
+
   return (
+    // <themeContext.Provider value={{ theme, setTheme }}>
     <Router>
       <div className={`${!theme ? "bg-black" : "bg-white"}`}>
         <Head />
@@ -31,6 +36,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    // </themeContext.Provider>
   );
 }
 

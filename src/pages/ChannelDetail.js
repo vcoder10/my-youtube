@@ -1,4 +1,4 @@
-import React from "react";
+//import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import VideoContainer from "../components/VideoContainer";
@@ -6,6 +6,7 @@ import useGetChannelDetails from "../hooks/useGetChannelDetails";
 import useGetChannelAllVideo from "../hooks/useGetChannelAllVideo";
 import ShimmerVideoContainer from "../components/ShimmerVideoContainer";
 import userIcon from "../images/userIcon.jpg";
+//import themeContext from "../utils/themeContext";
 
 const ChannelDetail = () => {
   const { channelId } = useParams();
@@ -17,6 +18,7 @@ const ChannelDetail = () => {
   const videos = useSelector((store) => store.video.channelAllVideo);
   const channelDetails = useSelector((store) => store.video.channelDetails);
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
 
   if (!videos && !channelDetails)
     return <ShimmerVideoContainer type={"popular"} />;
@@ -30,16 +32,16 @@ const ChannelDetail = () => {
       }`}
     >
       <div className="flex items-center px-2 md:px-10">
-        <div className="hidden md:inline-block w-48">
+        <div className="hidden w-48 md:inline-block">
           <img
-            className="rounded-full w-full"
+            className="w-full rounded-full"
             alt="channel logo"
             src={thumbnails.medium.url ? thumbnails.medium.url : userIcon}
           />
         </div>
-        <div className="md:pl-10 pl-2">
+        <div className="pl-2 md:pl-10">
           <div className="">
-            <h1 className="font-bold text-3xl mb-2">{title}</h1>
+            <h1 className="mb-2 text-3xl font-bold">{title}</h1>
             <span className="pr-1">{customUrl}</span>
             <span className="px-1">{subscriberCount} Subscriber</span>
             <span className="px-1 ">{videoCount} video</span>
@@ -60,7 +62,7 @@ const ChannelDetail = () => {
           </button>
         </div>
       </div>
-      <div className="border border-gray-500 mt-6"></div>
+      <div className="mt-6 border border-gray-500"></div>
       <div
         className={`mt-6 w-full ${
           !theme ? "bg-black text-white" : "bg-whit text-black"

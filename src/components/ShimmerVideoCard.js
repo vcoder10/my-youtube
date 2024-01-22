@@ -1,8 +1,10 @@
-import React from "react";
+//import React, { useContext } from "react";
 import { useSelector } from "react-redux";
+//import themeContext from "../utils/ThemeContext";
 
 const ShimmerVideoCard = ({ type }) => {
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
   const shimmerStyles = {
     backgroundSize: `400% 100%`,
     animation: `shimmer 1.5s infinite linear`,
@@ -21,8 +23,8 @@ const ShimmerVideoCard = ({ type }) => {
           type === "popular" ? "" : " w-full"
         }`}
       >
-        <div className="rounded-full h-8 w-8"></div>
-        <div className="w-full py-2 pr-4 rounded-lg mx-2 h-6"></div>
+        <div className="w-8 h-8 rounded-full"></div>
+        <div className="w-full h-6 py-2 pr-4 mx-2 rounded-lg"></div>
       </div>
     </div>
   );

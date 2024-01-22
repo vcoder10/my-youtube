@@ -1,4 +1,4 @@
-import React from "react";
+//import React, { useContext } from "react";
 import Button from "@mui/material/Button";
 import HomeIcon from "@mui/icons-material/Home";
 import ExploreIcon from "@mui/icons-material/Explore";
@@ -20,26 +20,28 @@ import FlagIcon from "@mui/icons-material/Flag";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+//import themeContext from "../utils/ThemeContext";
 
 const Sidebar = () => {
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
 
   return (
     <div
       className={
-        "fixed mt-[5rem] px-2 pt-4 flex flex-col h-full w-[230px] top-0 left-0 overflow-y-scroll " +
+        "fixed mt-[5rem] px-2 pt-4 flex flex-col h-full w-[230px]  left-0 overflow-y-auto " +
         (!theme ? "bg-black" : "bg-white")
       }
     >
       <ul>
-        <li
-          className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
-            (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
-          }
-        >
-          {" "}
-          <Link to={"/"}>
+        <Link to={"/"}>
+          <li
+            className={
+              "cursor-pointer px-4 py-1  rounded-lg " +
+              (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
+            }
+          >
+            {" "}
             <Button
               variant="text"
               startIcon={<HomeIcon />}
@@ -51,11 +53,12 @@ const Sidebar = () => {
             >
               Home
             </Button>
-          </Link>
-        </li>
+          </li>
+        </Link>
+
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-not-allowed px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >
@@ -71,10 +74,11 @@ const Sidebar = () => {
             Shorts
           </Button>
         </li>
+
         <Link to={"/live"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -93,7 +97,7 @@ const Sidebar = () => {
         </Link>
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-pointer px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >
@@ -128,7 +132,7 @@ const Sidebar = () => {
         <Link to={"/category/trending"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -149,7 +153,7 @@ const Sidebar = () => {
         <Link to={"/category/music"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -169,7 +173,7 @@ const Sidebar = () => {
         <Link to={"/category/movies"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -189,7 +193,7 @@ const Sidebar = () => {
         <Link to={"/category/Gaming"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -209,7 +213,7 @@ const Sidebar = () => {
         <Link to={"/category/news"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -229,7 +233,7 @@ const Sidebar = () => {
         <Link to={"/category/Sports"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -249,7 +253,7 @@ const Sidebar = () => {
         <Link to={"/category/learning"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -270,7 +274,7 @@ const Sidebar = () => {
         <Link to={"/category/fashion"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -290,7 +294,7 @@ const Sidebar = () => {
         <Link to={"/category/podcast"}>
           <li
             className={
-              "cursor-pointer px-4 py-1  rounded-lg" +
+              "cursor-pointer px-4 py-1  rounded-lg " +
               (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
             }
           >
@@ -309,11 +313,11 @@ const Sidebar = () => {
         </Link>
       </ul>
 
-      <div className="border border-black my-2"></div>
+      <div className="my-2 border border-black"></div>
       <ul>
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-pointer px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >
@@ -332,7 +336,7 @@ const Sidebar = () => {
         </li>{" "}
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-pointer px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >
@@ -350,7 +354,7 @@ const Sidebar = () => {
         </li>
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-pointer px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >
@@ -369,7 +373,7 @@ const Sidebar = () => {
         </li>
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-pointer px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >
@@ -387,7 +391,7 @@ const Sidebar = () => {
         </li>
         <li
           className={
-            "cursor-pointer px-4 py-1  rounded-lg" +
+            "cursor-pointer px-4 py-1  rounded-lg " +
             (!theme ? "hover:bg-gray-800" : "hover:bg-gray-200")
           }
         >

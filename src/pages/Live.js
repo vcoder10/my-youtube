@@ -7,6 +7,7 @@ import VideoContainer from "../components/VideoContainer";
 const Live = () => {
   useGetLiveVideos();
   const videos = useSelector((store) => store.search.liveVideos);
+
   if (!videos) return <ShimmerVideoContainer type={"popular"} />;
 
   return (

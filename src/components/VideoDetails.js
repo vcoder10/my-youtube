@@ -1,16 +1,18 @@
-import React from "react";
+//import React, { useContext } from "react";
 import channleLogo from "../images/chatIcon.png";
 import useGetVideoDetail from "../hooks/useGetVideoDetail";
-import likeIcon from "../images/like icon.png";
+//import likeIcon from "../images/like icon.png";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import { Button } from "@mui/material";
+//import themeContext from "../utils/ThemeContext";
 
 const VideoDetails = ({ movieId }) => {
   useGetVideoDetail(movieId);
   const details = useSelector((store) => store.video.videoDetails);
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
   if (!details) return null;
 
   const { likeCount, viewCount } = details?.statistics;
@@ -22,20 +24,20 @@ const VideoDetails = ({ movieId }) => {
         !theme ? "bg-black text-white" : "bg-white"
       }`}
     >
-      <h1 className="text-lg md:text-2xl my-1 font-bold line-clamp-2">
+      <h1 className="my-1 text-lg font-bold md:text-2xl line-clamp-2">
         {title}
       </h1>
       <div className="flex justify-between">
-        <div className="flex justify-between items-center ">
+        <div className="flex items-center justify-between ">
           <Link to={"/channel/" + channelId}>
             <div className="flex">
               <img
-                className="w-8 md:w-12 h-8 md:h-12 mr-2 rounded-full"
+                className="w-8 h-8 mr-2 rounded-full md:w-12 md:h-12"
                 alt="logo"
                 src={channleLogo}
               />
               <div className="flex flex-col">
-                <h2 className="md:font-bold md:text-lg text-sm">
+                <h2 className="text-sm md:font-bold md:text-lg">
                   {channelTitle}
                 </h2>
                 <span className="text-sm">1M Subscriber</span>
@@ -64,7 +66,7 @@ const VideoDetails = ({ movieId }) => {
               textTransform: "none",
             }}
           ></Button>
-          <span className="md:block hidden">{likeCount}</span>
+          <span className="hidden md:block">{likeCount}</span>
         </div>
       </div>
       <div
@@ -77,7 +79,7 @@ const VideoDetails = ({ movieId }) => {
           <span> Premier 5 Dec 2023</span>
           <span>#trending</span>
         </div>
-        <div className="pt-4  mt-2">
+        <div className="pt-4 mt-2">
           {description.split("\n").map((line, index) => (
             <p key={index}>{line}</p>
           ))}

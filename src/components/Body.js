@@ -2,10 +2,12 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+//import themeContext from "../utils/ThemeContext";
 
 const Body = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
 
   return (
     <div className="flex">

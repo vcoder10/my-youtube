@@ -1,10 +1,12 @@
-import React from "react";
+//import React, { useContext } from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+//import themeContext from "../utils/ThemeContext";
 
 const ButtonLists = () => {
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
   const list = [
     "All",
     "Motivation",

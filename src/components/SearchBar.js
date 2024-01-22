@@ -4,7 +4,8 @@ import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API } from "../utils/constant";
 import { addSearchedMovie, cacheResults } from "../utils/searchSlice";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import Button from "./Button";
+//import Button from "./Button";
+//import themeContext from "../utils/ThemeContext";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,6 +17,7 @@ const SearchBar = () => {
   const cache = useSelector((store) => store.search);
   const dispatch = useDispatch();
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
   useEffect(() => {
     const timer = setTimeout(() => {
       if (cache[searchQuery]) {
@@ -89,7 +91,7 @@ const SearchBar = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onFocus={() => setShowSuggestions(true)}
-          onBlur={() => setShowSuggestions(false)}
+          onBlur={() => setTimeout(() => setShowSuggestions(false), 500)}
           onKeyDown={(e) => {
             handleEnterKeyPress(e);
             handleKeyDown(e);
@@ -116,7 +118,7 @@ const SearchBar = () => {
             {suggestions.map((s, index) => (
               <li
                 key={index}
-                className={`flex py-2 md:px-4 ${
+                className={`flex py-2 md:px-4 cursor-pointer ${
                   !theme ? "hover:bg-gray-800" : "hover:bg-gray-200"
                 } ${
                   index === selectedSuggestionIndex

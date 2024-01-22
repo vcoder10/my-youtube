@@ -1,9 +1,11 @@
-import React from "react";
+//import React, { useContext } from "react";
 import ShimmerVideoCard from "./ShimmerVideoCard";
 import { useSelector } from "react-redux";
+//import themeContext from "../utils/ThemeContext";
 
 const ShimmerVideoContainer = ({ type }) => {
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
   return (
     <div
       className={

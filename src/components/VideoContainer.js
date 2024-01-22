@@ -1,10 +1,12 @@
-import React from "react";
-import VideoCard, { AdVideoCard } from "./VideoCard";
+//import React, { useContext } from "react";
+import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+//import themeContext from "../utils/ThemeContext";
 
 const VideoContainer = ({ videos, type }) => {
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   if (!videos) return null;
   if (isMenuOpen && type === "related") type = "popular";
@@ -19,7 +21,6 @@ const VideoContainer = ({ videos, type }) => {
         (!theme ? "bg-black" : "bg-white")
       }
     >
-      {/* {type === "popular" && <AdVideoCard video={videos[0]} />} */}
       {videos.map((video) => (
         <Link
           to={

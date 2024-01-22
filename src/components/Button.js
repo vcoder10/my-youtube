@@ -1,8 +1,11 @@
-import React from "react";
+//import React, { useContext } from "react";
 import { useSelector } from "react-redux";
+//import themeContext from "../utils/ThemeContext";
 
 const Button = ({ name }) => {
   const theme = useSelector((store) => store.app.theme);
+  //const { theme } = useContext(themeContext);
+
   return (
     <div>
       <button

@@ -9,6 +9,8 @@ import NotificationAddIcon from "@mui/icons-material/NotificationAdd";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
+// import { useContext } from "react";
+// import themeContext from "../utils/ThemeContext";
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -16,8 +18,11 @@ const Head = () => {
     dispatch(toggleMenu());
   };
   const theme = useSelector((store) => store.app.theme);
+  // const { theme, setTheme } = useContext(themeContext);
+
   const handleTheme = () => {
     dispatch(toggleTheme());
+    //setTheme((prevTheme) => !prevTheme);
   };
   return (
     <div
