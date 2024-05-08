@@ -14,7 +14,7 @@ const PopularVideo = () => {
 
   const { getPopularVideo } = useGetPopularVideo();
   const containerRef = useRef();
-  //const theme = useSelector((store) => store.app.theme);
+
   const videos = useSelector((store) => store.video.popularVideo);
 
   const handleScroll = () => {

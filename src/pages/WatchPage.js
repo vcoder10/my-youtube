@@ -26,11 +26,11 @@ const WatchPage = () => {
   }, []);
   return (
     <div
-      className={`flex-col flex md:flex-row ${
+      className={`flex-col flex md:flex-row  overflow-y-auto ${
         isMenuOpen ? "md:ml-0" : "md:ml-20"
       } `}
     >
-      <div className=" flex flex-col mt-24 h-full ">
+      <div className="flex flex-col h-full mt-24 ">
         <div className="">
           <iframe
             className="rounded-xl w-screen h-[250px] md:h-[500px] md:w-[900px] md:mt-0 "

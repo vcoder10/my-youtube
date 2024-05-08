@@ -36,7 +36,7 @@ const useGetPopularVideo = () => {
 
   const getPopularVideo = async () => {
     try {
-      setLoading(true);
+      //setLoading(true);
 
       const response = await fetch(
         `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key=${GOOGLE_API_KEY}&pageToken=${
@@ -63,7 +63,7 @@ const useGetPopularVideo = () => {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return { popularVideo, loading, getPopularVideo };
+  return { getPopularVideo };
 };
 
 export default useGetPopularVideo;
